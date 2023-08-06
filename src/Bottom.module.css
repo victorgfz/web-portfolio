@@ -1,0 +1,27 @@
+.wrapper {
+    background-color: #00132c;
+    height: 10rem;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.p {
+    color: #7188a7;
+    text-align: center;
+}
+
+@media (max-width: 660px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        height: 16rem;
+    }
+    
+}

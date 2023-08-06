@@ -1,0 +1,164 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.topics {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+    padding: 1rem;
+
+}
+
+.topic {
+    padding: .5rem .75rem;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: .5;
+    cursor: pointer;
+    transition: .2s;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+.topic:hover {
+    opacity: .75;
+}
+.topic.active {
+    opacity: 1;
+}
+
+.topic.active::after {
+    content: '';
+    bottom: 0;
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+    background-color: black;
+    margin-top: .5rem;
+    animation: underline .2s forwards;
+}
+
+@keyframes underline {
+    to {
+        width: 85%;
+        opacity: 1;
+    }
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.photos.active {
+    animation: showUp .2s ease-out forwards;
+}
+
+.photos.inactive {
+    display: none;
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    transition: .4s;;
+}
+
+.photo {
+    height: 30rem;
+    width: auto;
+    cursor: pointer;
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.photoTitle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+
+    text-align: center;
+    font-size: 1rem;  
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+    
+    opacity: 0;
+    transition: .4s;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .7);
+}
+
+.photoTitle::after {
+    content: '';
+    width: 9rem;
+    height: 1px;
+    background-color: white;   
+}
+.photoTitle:hover {
+    opacity: 1;
+
+}
+
+.button {
+    place-self: center;
+    cursor: pointer;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .75rem;
+    border: 1px solid black;
+    color: black;
+    padding: .75rem 1rem;
+    background-color: white;
+    transition: .4s;
+
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .topics {
+        overflow-x: scroll;
+    }
+    .photos {
+        grid-template-columns: 1fr 1fr;
+    }
+    .photo {
+        height: 20rem;
+    }
+}

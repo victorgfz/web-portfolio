@@ -1,0 +1,288 @@
+.main::before {
+    content: '';
+    background: url('./assets/landing-background.jpg');
+    height: 42rem;
+    width: 100%;
+    position: absolute;
+    z-index: -9;
+    top: 0;
+    left: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 9rem 3rem 3rem; 
+    gap: 1rem;
+
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    max-width: calc(100% - 5rem );
+    width: 100%;
+    top: 19rem;
+    opacity: .7;
+}
+
+.leftArrow {
+    transform: rotateZ(180deg);
+    cursor: pointer;
+}
+.rightArrow {
+    cursor: pointer;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    max-width: 12ch;
+    line-height: 0.9;
+    color: white;
+    padding: .5rem 1rem;
+    transition: .4s;
+}
+
+.title.active {
+    animation: showUp .2s ease-out forwards;
+}
+
+.title.inactive {
+    display: none;
+    
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+.subtitle {
+    font-size: .7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: white;
+    padding: .5rem 1rem;
+    
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem 1rem;
+    
+}
+
+.firstButton {
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: .75rem 1rem;
+    border: 1px solid white;
+    color: white;
+    transition: .2s;
+}
+
+.firstButton:hover {
+    border: 1px solid #347fe1;
+    color: #347fe1;
+}
+
+.secondButton {
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: .75rem 2rem;
+    color: white;
+    background-color: #347fe1;
+    transition: .2s;
+}
+
+.secondButton:hover {
+    background-color: #2866b8;
+}
+
+.numbers {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem 1rem;
+    margin: 1rem 0 2rem;
+}
+.number {
+    font-size: .85rem;
+    font-weight: 400;
+    color: white;
+    display: flex;
+    align-items: center;
+    
+}
+.number.active::after {
+    content: '';
+    background-color: white;
+    width: 0;
+    height: 1px;
+    margin-left: 1rem;
+    animation: width .2s forwards;
+}
+
+@keyframes width {
+    to {
+        width: 2rem;
+        
+    }
+}
+
+.slides {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem 1rem;
+    
+}
+
+.slide {
+    padding: 3rem 2rem; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 1rem;
+    transition: .2s;
+}
+
+.slide.active {
+    background-color: #347fe1;
+    color: white; 
+}
+
+
+.slide.inactive {
+    background-color: white;
+    color: black;
+    
+}
+
+.slide:hover {
+    transform: scale(1.05);
+    
+}
+
+.slideIcon {
+
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 3rem;
+    height: 3rem;
+}
+
+.slideIcon.active {
+    color: white;
+    border: 1px solid white;
+}
+
+.slideIcon.inactive {
+    color: #347fe1;
+    border: 1px solid #347fe1;
+}
+
+.slideTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: inherit;
+    text-align: left;
+}
+
+.slideContent {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: .7;
+    color: inherit;
+    text-align: left;
+}
+
+.slideButton {
+    font-size: 1rem;
+    font-weight: 700;
+    color: inherit;
+    text-align: left;
+}
+
+.slideContent::after {
+    content: '...';
+    right: 0;
+    bottom: 0;
+
+}
+
+
+@media (max-width: 1360px) {
+    .arrows {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .main {   
+         margin: 9rem 1rem 1rem; 
+    }
+    .slide {
+        padding: 2rem;
+    }
+    .slideContent {
+        max-height: 4ch;
+        overflow: hidden;
+        position: relative;
+    }
+    
+   
+}
+
+@media (max-width: 840px) {
+    .title {
+        text-align: center;
+    }
+    .subtitle {
+        text-align: center; 
+    }
+    .main {
+        align-items: center;
+    
+        gap: 1rem;
+    }
+    
+    .slides {
+        display: grid;
+        grid-template-columns: 1fr 1fr;        
+    }
+    .slide {
+        padding: 2rem;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 3.5rem;
+    }
+    .slide {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,86 @@
+.wrapper {
+    background-color: #001837;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    color: white;
+}
+.subtitle {
+    font-size: .85rem;
+    opacity: .5;
+    text-align: center;
+    margin-top: .25rem;
+    color: white;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.input,
+.message {
+    background-color: #001837;
+    color: white;
+    border: 1px solid #2b4363;
+    padding: .5rem 1rem;
+    font-size: .75rem;
+}
+
+.input::placeholder, 
+.message::placeholder {
+    color: #7188a7;
+}
+
+.message {
+    grid-column: 1/4;
+}
+.button {
+    grid-column: 2;
+    text-align: center;
+    place-self: center;
+    padding: 1rem 2rem;
+
+    text-transform: uppercase;
+    color: white;
+    background-color: #347fe1;
+    border: none;
+    cursor: pointer;
+
+    font-size: .75rem;
+    font-weight: 600;
+    box-sizing: border-box;
+    transition: opacity .4s;;
+}
+
+.button:hover {
+    opacity: .9;
+}
+@media (max-width: 600px) {
+    .subtitle {
+        max-width: 45ch;
+    }
+    .message {
+        grid-column: 1;
+    }
+    .button {
+        grid-column: 1;
+    }
+    .form {
+        grid-template-columns: 1fr;
+        
+    }
+}
